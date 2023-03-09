@@ -11,8 +11,10 @@
   "author": "Shared Ordaz",
   "license": "GPL-3.0",
   "dependencies": {
+    "@types/express": "github:types/express",
     "express": "^4.18.2",
     "multiparty": "^4.2.3",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "typescript": "^4.9.5"
   }
 }
