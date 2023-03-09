@@ -9,6 +9,7 @@ const  controller = require("../controllers/users.js");
 
 router.get("/", controller.getAll);
 
-router.post("/", jsonparser, controller.createNew);
+router.use("/", jsonparser);
+router.post("/", controller.createNew);
 
 module.exports = router;
