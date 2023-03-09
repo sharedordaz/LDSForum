@@ -2,9 +2,8 @@ const mongoclient = require("../db/connect.js");
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
-  const session = DB.connect()
   try{
-    dbo = session.db("LDSForum");
+    dbo = mongoclient.getDB().db("LDSForum");
     collection =  dbo.collection('main');
     result = await collection.find();
     resultArray = result.toArray().then( (lists) =>{
@@ -19,13 +18,11 @@ const getAll = async (req, res, next) => {
 
 const createNew = async (req, res) =>{
   
-  const session = DB.connect()
-  
   const doc = { firstName : req.body.firstName, 
                 lastName : req.body.lastName
               };
 
-  const collection = session.db("LDSForum").collection("main");
+  const collection = mongoclient.getDB().db("LDSForum").collection("main");
 
     
   const result = await collection.insertOne(doc);
