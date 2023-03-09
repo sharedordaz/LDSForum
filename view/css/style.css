@@ -1,10 +1,12 @@
 :root{
-  --blue: #008DD5;
-  --black: #373F51;
-  --li-blue: #42F2F7;
-  --orange: #EF8354;
-  --li-orange: #F38D68;
+  /*Pallete. Colors from darker to lighter*/
+  --gray1: #545454;
+  --gray2: #69747C;
+  --green1: #6BAA75;
+  --green2: #84DD63;
+  --green3: #CBFF4D;
 
+ /*Extra colors*/
   --medium-gray: #626868;
   --light-gray: #939196;
   --almost-white: #E5E5E5;
@@ -18,7 +20,7 @@ main{
 }
 h1, h2, h3, h4{
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--orange);
+  color: var(--);
 }
 
 p, i, em, label{
