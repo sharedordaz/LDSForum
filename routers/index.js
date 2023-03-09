@@ -8,6 +8,9 @@ const path = require('path');
 router.use("/", require('./home.js'));
 
 router.use("/users", require('./users.js'));
+
+router.use("/api-docs", require("./swagger.js"))
+
 //THE EVERYTHING ELSE ROUTER
 router.get('*', (req, res, next) => {
   res.send("<h1>Undefined Route</h1>");
