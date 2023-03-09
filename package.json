@@ -12,6 +12,7 @@
   "author": "Shared Ordaz",
   "license": "GPL-3.0",
   "dependencies": {
+    "node": "19.6.0",
     "@types/express": "github:types/express",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
