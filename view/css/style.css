@@ -11,7 +11,7 @@
   --light-gray: #939196;
   --almost-white: #E5E5E5;
 
-  background-color: var(--blue);
+  background-color: var(--green1);
 }
 main{
   background-color: var(--almost-white);
@@ -20,7 +20,7 @@ main{
 }
 h1, h2, h3, h4{
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--);
+  color: var(--gray1);
 }
 
 p, i, em, label{

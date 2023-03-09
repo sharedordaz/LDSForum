@@ -1,6 +1,7 @@
 const express = require("express");
-const app = express();
+const connect = require('./db/connect.js');
 const port = 8000;
+const app = express();
 
 app
 //Because this .use doesnt have mount point (/), is sended to all the apps
@@ -15,6 +16,13 @@ app.use('/', require('./routers'));
 
 //app.get and .post are executed just in GET and POST request to an specific route (mount point)
 
-app.listen(port, () => {
-  console.log (`App running on port ${port}`);
-})
+//Require to start the db correctly, if not the app.listen doesnt run
+connect.startDB((err) =>{
+  if (err) {
+    console.log ("Another error! Funny thing\n Error: " + err);
+  }
+  else {
+    app.listen(port);
+    console.log (`App running on port ${port}`);
+    }
+  })

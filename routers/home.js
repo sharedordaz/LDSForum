@@ -13,7 +13,7 @@ router.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, '../view/home.html'));
 })
 
-//Doesnt read because HTML forms use an special format of request body, but using jsonparser
+//Doesnt read because HTML forms use an special format of request body, but using jsonparser so it can read JSON
 router.post('/', jsonparser, homeForm.form);
 
 router.get('/css/style.css', (req, res) => {

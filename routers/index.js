@@ -5,7 +5,9 @@ const router = require('express').Router();
 const path = require('path');
 
 //THE HOME ROUTER- MIDDLEWARE FUNCTION IS the REQUIRE
-router.use("/", require('./home.js'))
+router.use("/", require('./home.js'));
+
+router.use("/users", require('./users.js'));
 //THE EVERYTHING ELSE ROUTER
 router.get('*', (req, res, next) => {
   res.send("<h1>Undefined Route</h1>");
