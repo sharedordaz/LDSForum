@@ -1,0 +1,12 @@
+:root{
+  background-image: url('/images/RHEL.jpg');
+  background-size: 100%;
+}
+
+h1, h2, h3, h4{
+  color: white;
+}
+
+p, i, em, label{
+  color:white;
+}

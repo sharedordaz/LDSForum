@@ -1,0 +1,18 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "To practice NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Shared Ordaz",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "express": "^4.18.2",
+    "multiparty": "^4.2.3",
+    "nodemon": "^2.0.21"
+  }
+}
