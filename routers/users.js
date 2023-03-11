@@ -7,8 +7,10 @@ const urlparser = express.urlencoded();
 const controller = require("../controllers/users.js");
 
 router.get("/", controller.getAll);
+router.get("/:id", controller.getSingle);
 
 router.use("/", jsonparser);
+
 router.post("/", controller.createNew);
 
 //Send and id value to req.params.id
