@@ -12,7 +12,7 @@ router.use("/", jsonparser);
 router.post("/", controller.createNew);
 
 //Send and id value to req.params.id
-router.put('/:id', jsonparser, controller.updateUsr);
+router.put('/:id', controller.updateUsr);
 
 router.delete('/:id', controller.delUsr);
 
