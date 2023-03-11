@@ -13,7 +13,7 @@ router.use("/api-docs", require("./swagger.js"))
 
 //THE EVERYTHING ELSE ROUTER
 router.get('*', (req, res, next) => {
-  res.send("<h1>Undefined Route</h1>");
+  res.status(404).send("<h1>Undefined Route</h1>");
 })
 
 module.exports = router;
