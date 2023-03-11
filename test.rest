@@ -4,3 +4,14 @@ https://ldsforum.onrender.com/users
 "Content-Type", "application/json"
 { "firstName" : "Emiliano",
   "lastName" : "Zapata" }
+
+https://ldsforum.onrender.com/users/640c09c30fc7a2b9e3b150de
+
+{ "firstName" : "Victoriano",
+  "lastName" : "Huerta" }
+OR
+{ "firstName" : "Venustiano",
+  "lastName" : "Carranza" }
+OR  
+{ "firstName" : "Porfirio",
+  "lastName" : "Diaz" }
