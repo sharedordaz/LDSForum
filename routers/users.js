@@ -1,15 +1,19 @@
-const express = require("express"); 
+const express = require("express");
 const router = require('express').Router();
-const path = require('path');
 
 const jsonparser = express.json();
 const urlparser = express.urlencoded();
 
-const  controller = require("../controllers/users.js");
+const controller = require("../controllers/users.js");
 
 router.get("/", controller.getAll);
 
 router.use("/", jsonparser);
 router.post("/", controller.createNew);
+
+//Send and id value to req.params.id
+router.put('/:id', jsonparser, controller.updateUsr);
+
+router.delete('/:id', controller.delUsr);
 
 module.exports = router;
