@@ -5,8 +5,6 @@ const path = require('path');
 const jsonparser = express.json();
 const urlparser = express.urlencoded({ extended: true });
 
-const homeForm = require('../controllers/homeForm.js');
-
 //To manage forms, you hage to use the URLparser to both the HTML container of the form and the function receiver of the form 
 router.use("/", urlparser);
 
@@ -15,7 +13,6 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, '../view/home.html'));
 })
 
-router.post('/', homeForm.ShowAccount);
 
 router.get('/css/style.css', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../view/css/style.css'));
