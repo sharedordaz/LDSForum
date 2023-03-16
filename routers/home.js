@@ -1,31 +1,28 @@
-const express = require("express"); 
+const express = require("express");
 const router = require('express').Router();
 const path = require('path');
 
 const jsonparser = express.json();
-const urlparser = express.urlencoded();
+const urlparser = express.urlencoded({ extended: true });
 
 const homeForm = require('../controllers/homeForm.js');
 
+//To manage forms, you hage to use the URLparser to both the HTML container of the form and the function receiver of the form 
+router.use("/", urlparser);
 
-//EVERY FILE UPLOADED IS SENDED TO THE SPECIFIC GET REQUEST. 
-router.get("/", (req, res, next) => {
+
+router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, '../view/home.html'));
 })
 
-//Doesnt read because HTML forms use an special format of request body, but using jsonparser so it can read JSON
-router.post('/', jsonparser, homeForm.form);
+router.post('/', homeForm.form);
 
-router.get('/css/style.css', (req, res) => {
+router.get('/css/style.css', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../view/css/style.css'));
 })
 
-//EVEN IF THE IMAGES FOLDER DOESNT EXIST, WE ARE CALLING THE IMAGE AT THE VIEW FOLDER WITH /images/RHEL
-router.get('/images/RHEL.jpg', (req, res) => {
-  res.sendFile(path.join(__dirname, '../view/RHEL.jpg'));
-})
 
-module.exports= router;
+module.exports = router;
 
 /*router.use('/', express.json());
 router.use('/', express.urlencoded({extended: true}));

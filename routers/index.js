@@ -7,9 +7,13 @@ const path = require('path');
 //THE HOME ROUTER- MIDDLEWARE FUNCTION IS the REQUIRE
 router.use("/", require('./home.js'));
 
+router.use("/loggers", require('./loggers.js'));
+
 router.use("/users", require('./users.js'));
 
-router.use("/api-docs", require("./swagger.js"))
+router.use("/images", require('./images.js'));
+
+router.use("/api-docs", require("./swagger.js"));
 
 //THE EVERYTHING ELSE ROUTER
 router.get('*', (req, res, next) => {
