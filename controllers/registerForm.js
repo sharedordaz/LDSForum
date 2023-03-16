@@ -13,7 +13,7 @@ function ShowAccount(req, res) {
   const HTML = `<ul><li>First Name: ${firstName}</li> <li>Last Name: ${lastName}</li> <li> Email: ${email} <li> Age: ${age} </li> <li> Description: ${description}  </li> <li> Password: ${password} </li> </ul> `;
 
   //res.send(`<p> ${req.body[0]}</p>`);
-  res.send(HTML);
+  res.send(HTML + "You are funny");
 }
 
 //If you want to export a function, you need to wrap it in a {}
