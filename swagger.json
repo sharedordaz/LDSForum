@@ -24,6 +24,24 @@
             "description": "OK"
           }
         }
+      }
+    },
+    "/css/style.css": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/loggers/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
       },
       "post": {
         "description": "",
@@ -39,6 +57,18 @@
                 },
                 "lastName": {
                   "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
                 }
               }
             }
@@ -51,7 +81,7 @@
         }
       }
     },
-    "/css/style.css": {
+    "/loggers/register": {
       "get": {
         "description": "",
         "parameters": [],
@@ -62,7 +92,7 @@
         }
       }
     },
-    "/images/RHEL.jpg": {
+    "/loggers/css/style.css": {
       "get": {
         "description": "",
         "parameters": [],
@@ -188,6 +218,17 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/images/RHEL.jpg": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
