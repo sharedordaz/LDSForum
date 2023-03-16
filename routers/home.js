@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, '../view/home.html'));
 })
 
-router.post('/', homeForm.form);
+router.post('/', homeForm.ShowAccount);
 
 router.get('/css/style.css', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../view/css/style.css'));
@@ -23,7 +23,6 @@ router.get('/css/style.css', (req, res, next) => {
 
 
 module.exports = router;
-
 /*router.use('/', express.json());
 router.use('/', express.urlencoded({extended: true}));
 router.use('/', (req, res) => {
