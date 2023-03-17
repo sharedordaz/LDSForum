@@ -4,7 +4,6 @@ const router = require('express').Router();
 
 const path = require('path');
 
-//THE HOME ROUTER- MIDDLEWARE FUNCTION IS the REQUIRE
 router.use("/", require('./home.js'));
 
 router.use("/loggers", require('./loggers.js'));
