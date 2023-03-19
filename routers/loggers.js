@@ -6,8 +6,9 @@ const jsonparser = express.json();
 const urlparser = express.urlencoded({ extended: true });
 
 const registerForm = require('../controllers/registerForm.js');
+const controller = require('../controllers/loggers.js');
 
-router.get("/", () => { });
+router.get("/", controller.getAll);
 
 router.use("/", urlparser);
 
