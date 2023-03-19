@@ -17,15 +17,18 @@ router.get("/register", (req, res) => {
 })
 
 router.post('/', registerForm.registerNew);
+//-----------------------------------------//
+
 
 router.get("/", controller.getAll);
 
 router.get("/:id", controller.getSingle);
 
 
-router.get('/css/style.css', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../view/css/style.css'));
-})
+router.put('/:id', controller.updateUsr);
 
+router.delete('/:id', controller.delUsr);
+
+//----------------------------------------/
 
 module.exports = router;

@@ -33,9 +33,45 @@ const getSingle = async (req, res, next) => {
   }
 }
 
+
+const updateUsr = async (req, res, next) => {
+  //res.send("PUT from function is working");
+  const userId = new ObjectId(req.params.id);
+  // be aware of updateOne if you only want to update specific fields
+  const doc = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    age: req.body.age,
+    description: req.body.description,
+    password: req.body.password
+  };
+
+  const collection = mongoclient.getDB().db("LDSForum").collection("users");
+  const result = await collection.replaceOne({ _id: userId }, doc);
+  if (result.modifiedCount > 0) {
+    res.status(204).send("PUT request successful");
+  } else {
+    res.status(500).json(result.error || 'Some error occurred while updating the contact.');
+  }
+}
+
+const delUsr = async (req, res, next) => {
+  const userId = new ObjectId(req.params.id);
+
+  const collection = mongoclient.getDB().db("LDSForum").collection("users");
+  const result = await collection.deleteOne({ _id: userId }, true);
+
+  if (result.deletedCount > 0) {
+    res.status(204).send("DELETE request sucessful");
+  } else {
+    res.status(500).json(result.error || 'Some error occurred while deleting the contact.');
+  }
+};
+
 module.exports = {
   getAll,
   getSingle,
-  //updateUsr,
-  //delUsr
+  updateUsr,
+  delUsr
 };
