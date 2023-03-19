@@ -25,7 +25,7 @@ router.get("/", controller.getAll);
 router.get("/:id", controller.getSingle);
 
 
-router.put('/:id', controller.updateUsr);
+router.put('/:id', jsonparser, controller.updateUsr);
 
 router.delete('/:id', controller.delUsr);
 
