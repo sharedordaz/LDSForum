@@ -38,7 +38,7 @@ function registerNew(req, res) {
   if (result) {
     let accountInfo = ShowAccount(req, res);
     console.log(accountInfo);
-    res.sendFile(path.join(__dirname, '../view/userInfo.html'))
+    res.sendFile(path.join(__dirname, '../view/registered.html'))
   } else {
     res.status(500).json(result.error || 'Some error occurred while creating the contact.');
   }

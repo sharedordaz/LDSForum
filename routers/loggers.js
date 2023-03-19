@@ -8,7 +8,7 @@ const urlparser = express.urlencoded({ extended: true });
 const registerForm = require('../controllers/registerForm.js');
 const controller = require('../controllers/loggers.js');
 
-router.get("/", controller.getAll);
+
 
 router.use("/", urlparser);
 
@@ -17,6 +17,11 @@ router.get("/register", (req, res) => {
 })
 
 router.post('/', registerForm.registerNew);
+
+router.get("/", controller.getAll);
+
+router.get("/:id", controller.getSingle);
+
 
 router.get('/css/style.css', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../view/css/style.css'));
