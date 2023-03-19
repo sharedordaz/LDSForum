@@ -8,14 +8,14 @@ const path = require('path');
 //const fs = require('fs');
 
 function ShowAccount(req, res) {
-  var firstName = req.body.firstName;
-  var lastName = req.body.lastName;
-  var email = req.body.email;
-  var age = req.body.age;
-  var description = req.body.description;
-  var password = req.body.password;
+  var firstName: any = req.body.firstName;
+  var lastName: any = req.body.lastName;
+  var email: any = req.body.email;
+  var age: any = req.body.age;
+  var description: any = req.body.description;
+  var password: any = req.body.password;
 
-  const HTML = `<ul><li>First Name: ${firstName}</li> <li>Last Name: ${lastName}</li> <li> Email: ${email} <li> Age: ${age} </li> <li> Description: ${description}  </li> <li> Password: ${password} </li> </ul> `;
+  const HTML: string = `<ul><li>First Name: ${firstName}</li> <li>Last Name: ${lastName}</li> <li> Email: ${email} <li> Age: ${age} </li> <li> Description: ${description}  </li> <li> Password: ${password} </li> </ul> `;
 
   //res.send(`<p> ${req.body[0]}</p>`);
   //res.send(HTML + "You are funny");
@@ -23,7 +23,7 @@ function ShowAccount(req, res) {
 }
 
 function registerNew(req, res) {
-  const doc = {
+  const doc: {} = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -31,7 +31,7 @@ function registerNew(req, res) {
     description: req.body.description,
     password: req.body.password
   };
-  const collection = mongoclient.getDB().db("LDSForum").collection("users");
+  const collection: any = mongoclient.getDB().db("LDSForum").collection("users");
 
 
   const result = collection.insertOne(doc);
@@ -50,3 +50,5 @@ module.exports = {
   ShowAccount,
   registerNew
 };
+
+

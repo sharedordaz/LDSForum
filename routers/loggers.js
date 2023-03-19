@@ -5,7 +5,7 @@ const path = require('path');
 const jsonparser = express.json();
 const urlparser = express.urlencoded({ extended: true });
 
-const registerForm = require('../controllers/registerForm.js');
+const registerForm = require('../controller/registerForm.js');
 const controller = require('../controllers/loggers.js');
 
 

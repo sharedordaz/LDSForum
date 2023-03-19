@@ -10,8 +10,6 @@ router.use("/auth", require('./home.js'));
 
 router.use("/loggers", require('./loggers.js'));
 
-router.use("/users", require('./users.js'));
-
 router.use("/images", require('./images.js'));
 
 router.use("/api-docs", require("./swagger.js"));
