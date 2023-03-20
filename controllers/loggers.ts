@@ -1,11 +1,15 @@
-import { mongoclient } from '../db/connect';
+import { Request, Response, NextFunction } from 'express';
+import { urlencoded } from 'express';
+import { Collection, Db, ObjectId } from 'mongodb';
+import mongoclient from '../db/connect';
 import { register } from '../controller/registerForm';
 
-const getAll = async (req, res, next) => {
+const getAll = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const dbo: any = mongoclient.db('LDSForum');
-    const collection: any = dbo.collection('users');
-    const result = await collection.find();
+    let mongoclient: any;
+    const dbo: Db = mongoclient.getDB().db('LDSForum');
+    const collection: Collection = dbo.collection('users');
+    const result = collection.find();
     const resultArray = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(resultArray);
@@ -15,8 +19,9 @@ const getAll = async (req, res, next) => {
   }
 };
 
-const getSingle = async (req, res) => {
+const getSingle = async (req: Request, res: Response, next: NextFunction) => {
   try {
+
     const userId = new ObjectId(req.params.id);
     const result = mongoclient.getDB().db('LDSForum').collection('users').find({ _id: userId });
     const resultArray = await result.toArray();
@@ -28,7 +33,7 @@ const getSingle = async (req, res) => {
   }
 };
 
-const updateUsr = async (req, res) => {
+const updateUsr = async (req: Request, res: Response, next: NextFunction) => {
   const userId = new ObjectId(req.params.id);
   const doc = {
     firstName: req.body.firstName,
@@ -39,7 +44,7 @@ const updateUsr = async (req, res) => {
     password: req.body.password,
   };
 
-  const collection: any = mongoclient.getDB().db('LDSForum').collection('users');
+  const collection: Collection = mongoclient.getDB().db('LDSForum').collection('users');
   const result = await collection.replaceOne({ _id: userId }, doc);
   if (result.modifiedCount > 0) {
     res.status(204).send('PUT request successful');
@@ -48,10 +53,10 @@ const updateUsr = async (req, res) => {
   }
 };
 
-const delUsr = async (res, req, next) => {
+const delUsr = async (req: Request, res: Response, next: NextFunction) => {
   const userId = new ObjectId(req.params.id);
 
-  const collection: any = mongoclient.getDB().db('LDSForum').collection('users');
+  const collection: Collection = mongoclient.getDB().db('LDSForum').collection('users');
   const result = await collection.deleteOne({ _id: userId }, true);
 
   if (result.deletedCount > 0) {
@@ -62,3 +67,4 @@ const delUsr = async (res, req, next) => {
 };
 
 export { getAll, getSingle, updateUsr, delUsr };
+
